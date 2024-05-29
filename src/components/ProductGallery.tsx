@@ -35,8 +35,8 @@ export default function ProductGallery() {
 
   return (
     <div>
-      <div className="flex justify-between gap-4 pl-20 pr-20 ">
-        <div className="min-w-[60px]">
+      <div className="flex justify-between gap-4 px-2 sm:px-10 md:px-20">
+        <div className="min-w-[60px] hidden md:block">
           {PRODUCT_IMAGES.map((product, idx) => (
             <div
               onMouseEnter={() => handleHover(idx)}

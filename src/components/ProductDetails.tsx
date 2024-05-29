@@ -1,6 +1,6 @@
 export default function ProductDetails() {
   return (
-    <div>
+    <div className="px-4 sm:px-10 md:px-0">
       <h3 className="text-base font-medium text-red-800">Just in</h3>
       <h2 className="text-2xl font-medium">Nike Dunk Low</h2>
       <p className="text-base text-gray-400 font-normal">Men's Shoes</p>
