@@ -49,3 +49,27 @@ export const PRODUCT_IMAGES = [
       'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e16bbc69-5566-485b-925f-0c6e8d243eaf/dunk-low-mens-shoes-l12Bc1.png',
   },
 ]
+
+export const MEMBESHIP_ITEMS = [
+  {
+    subtitle: 'Member Product',
+    title: 'Your Exclusive Access',
+    image:
+      'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_619,c_limit/4c87032a-1756-47dc-b731-966f2d79285e/nike-just-do-it.jpg',
+    button: 'Shop',
+  },
+  {
+    subtitle: 'Sports & Wellness Apps',
+    title: "Movement Where You're At",
+    image:
+      'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_619,c_limit/73de197a-2e67-42aa-b4e6-aeda1883636b/nike-just-do-it.jpg',
+    button: 'Move',
+  },
+  {
+    subtitle: 'Nike By You',
+    title: 'Your Customization Service',
+    image:
+      'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_619,c_limit/a3d73dc6-a36a-432c-a845-68bf59c5f876/nike-just-do-it.jpg',
+    button: 'Customize',
+  },
+]
