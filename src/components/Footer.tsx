@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Wrapper from './Wrapper'
 
 const FooterStyled = styled.footer`
   border-top: 1px solid #e5e5e5;
@@ -22,46 +23,48 @@ const FooterStyled = styled.footer`
 
 export default function Footer() {
   return (
-    <FooterStyled>
-      <div>
-        <h2>Resources</h2>
-        <ul>
-          <li>Gift Cards</li>
-          <li>Find a Store</li>
-          <li>Become a member</li>
-          <li>Nike x NBA</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Help</h2>
-        <ul>
-          <li>Gift Cards</li>
-          <li>Find a Store</li>
-          <li>Become a member</li>
-          <li>Nike x NBA</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Company</h2>
-        <ul>
-          <li>Gift Cards</li>
-          <li>Find a Store</li>
-          <li>Become a member</li>
-          <li>Nike x NBA</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Promotions & Discounts</h2>
-        <ul>
-          <li>Gift Cards</li>
-          <li>Find a Store</li>
-          <li>Become a member</li>
-          <li>Nike x NBA</li>
-        </ul>
-      </div>
-      <div>
-        <h2>United States</h2>
-      </div>
-    </FooterStyled>
+    <Wrapper>
+      <FooterStyled>
+        <div>
+          <h2>Resources</h2>
+          <ul>
+            <li>Gift Cards</li>
+            <li>Find a Store</li>
+            <li>Become a member</li>
+            <li>Nike x NBA</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Help</h2>
+          <ul>
+            <li>Gift Cards</li>
+            <li>Find a Store</li>
+            <li>Become a member</li>
+            <li>Nike x NBA</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li>Gift Cards</li>
+            <li>Find a Store</li>
+            <li>Become a member</li>
+            <li>Nike x NBA</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Promotions & Discounts</h2>
+          <ul>
+            <li>Gift Cards</li>
+            <li>Find a Store</li>
+            <li>Become a member</li>
+            <li>Nike x NBA</li>
+          </ul>
+        </div>
+        <div>
+          <h2>United States</h2>
+        </div>
+      </FooterStyled>
+    </Wrapper>
   )
 }

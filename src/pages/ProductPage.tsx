@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import ProductView from '../components/ProductView'
 import Wrapper from '../components/Wrapper'
+import Store from '../components/Store'
 
 export default function ProductPage() {
   useEffect(() => {
@@ -8,8 +9,10 @@ export default function ProductPage() {
   }, [])
 
   return (
-    <Wrapper>
-      <ProductView />
-    </Wrapper>
+    <Store>
+      <Wrapper>
+        <ProductView />
+      </Wrapper>
+    </Store>
   )
 }

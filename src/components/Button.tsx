@@ -8,7 +8,8 @@ type ButtonProps = {
 type variants = keyof typeof Variants
 
 const Variants = {
-  solid: 'bg-white px-4 py-2 rounded-full text-sm font-medium',
+  solid: 'bg-black text-white px-4 py-2 rounded-full text-sm font-medium',
+  solidinverse: 'bg-white px-4 py-2 rounded-full text-sm font-medium',
   outlined: 'border border-black px-4 py-2 rounded-full text-sm font-medium',
   text: 'px-4 py-2 text-sm font-medium',
 }

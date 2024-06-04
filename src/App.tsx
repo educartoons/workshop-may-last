@@ -7,36 +7,21 @@ import NotFoundPage from './pages/NotFoundPage'
 import { UserContextProvider } from './context/user-context'
 import UsersPage from './pages/UsersPage'
 import HomePage from './pages/HomePage'
-import MobileNavigation from './components/MobileNavigation'
+import AuthPage from './pages/AuthPage'
 
 export default function App() {
-  const [openMenu, setOpenMenu] = useState(false)
-
-  const handleOpenMenu = () => {
-    setOpenMenu(true)
-  }
-
-  const handleClose = () => {
-    setOpenMenu(false)
-  }
-
   return (
     <BrowserRouter>
       <UserContextProvider>
-        <div
-          className={`relative ${
-            openMenu ? 'max-h-screen overflow-hidden' : ''
-          }`}
-        >
-          <Header handleOpenMenu={handleOpenMenu} />
+        <div>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/users" element={<UsersPage />} />
             <Route path="*" element={<NotFoundPage />} />
+            <Route path="/auth/*" element={<AuthPage />} />
           </Routes>
-          <MobileNavigation openMenu={openMenu} handleClose={handleClose} />
         </div>
       </UserContextProvider>
     </BrowserRouter>

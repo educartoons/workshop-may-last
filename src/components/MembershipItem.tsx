@@ -19,7 +19,7 @@ export default function MembershipItem({ item }: MembershipItemProps) {
         <h3 className="text-white text-base font-normal">{item.subtitle}</h3>
         <h2 className="text-white text-2xl font-medium">{item.title}</h2>
         <div className="mt-4">
-          <Button variant="solid">{item.button}</Button>
+          <Button variant="solidinverse">{item.button}</Button>
         </div>
       </div>
     </div>

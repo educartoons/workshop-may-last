@@ -1,10 +1,13 @@
 import ProductList from '../components/ProductList'
+import Store from '../components/Store'
 import Wrapper from '../components/Wrapper'
 
 export default function ProductsPage() {
   return (
-    <Wrapper>
-      <ProductList />
-    </Wrapper>
+    <Store>
+      <Wrapper>
+        <ProductList />
+      </Wrapper>
+    </Store>
   )
 }

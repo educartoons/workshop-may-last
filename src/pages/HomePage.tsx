@@ -1,12 +1,13 @@
-import Footer from '../components/Footer'
 import Membership from '../components/Membership'
+import Store from '../components/Store'
 import Wrapper from '../components/Wrapper'
 
 export default function HomePage() {
   return (
-    <Wrapper>
-      <Membership />
-      <Footer />
-    </Wrapper>
+    <Store>
+      <Wrapper>
+        <Membership />
+      </Wrapper>
+    </Store>
   )
 }

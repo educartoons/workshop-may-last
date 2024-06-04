@@ -23,7 +23,9 @@ export default function PreHeader() {
                 <li className="text-xs">Find a Store</li>
                 <li className="text-xs">Help</li>
                 <li className="text-xs">Join Us</li>
-                <li className="text-xs">Sign In</li>
+                <li className="text-xs">
+                  <Link to="/auth/lookup">Sign In</Link>
+                </li>
               </ul>
             </nav>
           </div>
