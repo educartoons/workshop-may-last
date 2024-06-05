@@ -3,6 +3,7 @@ import { IconJordan, IconNike } from '../utils/icons'
 import AuthJoin from './AuthJoin'
 import AuthLookup from './AuthLookup'
 import { Route, Routes } from 'react-router-dom'
+import AuthLogin from './AuthLogin'
 
 export default function Auth() {
   const [email, setEmail] = useState('')
@@ -34,6 +35,7 @@ export default function Auth() {
             }
           />
           <Route path="/register" element={<AuthJoin email={email} />} />
+          <Route path="/signin" element={<AuthLogin email={email} />} />
         </Routes>
       </div>
     </div>

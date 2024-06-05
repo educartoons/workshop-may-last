@@ -33,6 +33,9 @@ function Header({ handleOpenMenu }: HeaderProps) {
                 <li>Kids</li>
                 <li>Jordan</li>
                 <li>Sale</li>
+                <li>
+                  <Link to="users">Users</Link>
+                </li>
               </ul>
             </nav>
           </div>

@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import Wrapper from './Wrapper'
 import { IconConverse, IconJordan } from '../utils/icons'
+import { RootState } from '../store/store'
 
 export default function PreHeader() {
+  const { isAuthenticated } = useSelector((state: RootState) => state.user)
   return (
     <div className="bg-gray-100 py-1 hidden md:block">
       <Wrapper>
@@ -23,9 +26,15 @@ export default function PreHeader() {
                 <li className="text-xs">Find a Store</li>
                 <li className="text-xs">Help</li>
                 <li className="text-xs">Join Us</li>
-                <li className="text-xs">
-                  <Link to="/auth/lookup">Sign In</Link>
-                </li>
+                {isAuthenticated ? (
+                  <li className="text-xs">
+                    <Link to="/auth/lookup">Sign Out</Link>
+                  </li>
+                ) : (
+                  <li className="text-xs">
+                    <Link to="/auth/lookup">Sign In</Link>
+                  </li>
+                )}
               </ul>
             </nav>
           </div>

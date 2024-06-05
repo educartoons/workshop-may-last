@@ -1,8 +1,9 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from './Button'
 import { supabase } from '../db/db'
 import { isUserRegistered } from '../api/auth'
+import Spinner from './Spinner'
 
 type AuthLookupProps = {
   email: string
@@ -15,17 +16,19 @@ export default function AuthLookup({
   handleChangeEmail,
   email,
 }: AuthLookupProps) {
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const handleContinue = async () => {
+    setLoading(true)
     const isRegistered = await isUserRegistered(email)
-    console.log(isRegistered)
+    setLoading(false)
     if (!isRegistered) {
       navigate('../register', {
         relative: 'path',
       })
     } else {
-      navigate('../login', {
+      navigate('../signin', {
         relative: 'path',
       })
     }
@@ -52,7 +55,13 @@ export default function AuthLookup({
       </div>
       <div className="mt-5 flex justify-end">
         <Button onClick={handleContinue} variant="solid">
-          Continue
+          {loading ? (
+            <div className="px-4">
+              <Spinner />
+            </div>
+          ) : (
+            'Continue'
+          )}
         </Button>
       </div>
     </div>

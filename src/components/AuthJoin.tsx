@@ -1,7 +1,10 @@
 import { ChangeEvent, useState } from 'react'
+import { useSnackbar } from 'notistack'
+import { useNavigate } from 'react-router-dom'
 import Button from './Button'
 import Input from './Input'
 import { createUser } from '../api/auth'
+import Spinner from './Spinner'
 
 type AuthJoinProps = {
   email: string
@@ -12,6 +15,9 @@ export default function AuthJoin({ email }: AuthJoinProps) {
     fullname: '',
     password: '',
   })
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
+  const { enqueueSnackbar } = useSnackbar()
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setForm({
@@ -21,8 +27,21 @@ export default function AuthJoin({ email }: AuthJoinProps) {
   }
 
   const handleCreateAccount = async () => {
+    setLoading(true)
     const data = await createUser(email, form.password, form.fullname)
-    console.log(data)
+    setLoading(false)
+    if (data) {
+      enqueueSnackbar('Your profile was created successfully', {
+        variant: 'success',
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'right',
+        },
+      })
+      navigate('../signin', {
+        relative: 'path',
+      })
+    }
   }
 
   return (
@@ -60,7 +79,13 @@ export default function AuthJoin({ email }: AuthJoinProps) {
       </div>
       <div className="mt-5 flex justify-end">
         <Button onClick={handleCreateAccount} variant="solid">
-          Create Account
+          {loading ? (
+            <div className="px-4">
+              <Spinner />
+            </div>
+          ) : (
+            'Create Account'
+          )}
         </Button>
       </div>
     </div>

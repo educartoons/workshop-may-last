@@ -38,4 +38,18 @@ async function createUser(email: string, password: string, fullname: string) {
   return true
 }
 
-export { isUserRegistered, createUser }
+async function signin(email: string, password: string) {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  })
+
+  if (error) {
+    console.error('Error checking user registration:', error)
+    return false
+  }
+
+  return data
+}
+
+export { isUserRegistered, createUser, signin }
