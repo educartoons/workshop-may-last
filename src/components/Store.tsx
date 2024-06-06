@@ -4,7 +4,9 @@ import Header from './Header'
 import MobileNavigation from './MobileNavigation'
 import Footer from './Footer'
 import { supabase } from '../db/db'
-import { setUser } from '../store/userSlice'
+import { resetUser, setUser } from '../store/userSlice'
+import { getUserProfile } from '../api/user'
+import { Session } from '@supabase/supabase-js'
 
 type StoreProps = {
   children: React.ReactNode
@@ -21,15 +23,26 @@ export default function Store({ children }: StoreProps) {
   const handleClose = () => {
     setOpenMenu(false)
   }
+
+  const handleSignIn = async (session: Session) => {
+    const data = await getUserProfile(session.user.id)
+
+    dispatch(
+      setUser({
+        email: session.user.email!,
+        isAuthenticated: true,
+        fullName: data.full_name!,
+        createdAt: data.created_at,
+      })
+    )
+  }
+
   useEffect(() => {
-    supabase.auth.onAuthStateChange((event, session) => {
+    const element = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session) {
-        dispatch(
-          setUser({
-            email: session.user.email!,
-            isAuthenticated: true,
-          })
-        )
+        handleSignIn(session)
+      } else if (event === 'SIGNED_OUT') {
+        dispatch(resetUser())
       }
     })
   }, [])

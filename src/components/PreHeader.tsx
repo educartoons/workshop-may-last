@@ -1,11 +1,28 @@
 import { Link } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
 import { useSelector } from 'react-redux'
 import Wrapper from './Wrapper'
 import { IconConverse, IconJordan } from '../utils/icons'
 import { RootState } from '../store/store'
+import { signout } from '../api/auth'
 
 export default function PreHeader() {
-  const { isAuthenticated } = useSelector((state: RootState) => state.user)
+  const { isAuthenticated, name } = useSelector(
+    (state: RootState) => state.user
+  )
+  const { enqueueSnackbar } = useSnackbar()
+
+  const handleSignOut = async () => {
+    signout()
+    enqueueSnackbar('You have been signed out successfully', {
+      variant: 'info',
+      anchorOrigin: {
+        vertical: 'top',
+        horizontal: 'right',
+      },
+    })
+  }
+
   return (
     <div className="bg-gray-100 py-1 hidden md:block">
       <Wrapper>
@@ -27,14 +44,22 @@ export default function PreHeader() {
                 <li className="text-xs">Help</li>
                 <li className="text-xs">Join Us</li>
                 {isAuthenticated ? (
-                  <li className="text-xs">
-                    <Link to="/auth/lookup">Sign Out</Link>
-                  </li>
+                  <>
+                    <li className="text-xs">
+                      <button onClick={handleSignOut}>Sign Out</button>
+                    </li>
+                    <li className="text-xs">
+                      <Link to="/account">{name}</Link>
+                    </li>
+                  </>
                 ) : (
                   <li className="text-xs">
                     <Link to="/auth/lookup">Sign In</Link>
                   </li>
                 )}
+                <li className="text-xs">
+                  <Link to="/account">Account</Link>
+                </li>
               </ul>
             </nav>
           </div>

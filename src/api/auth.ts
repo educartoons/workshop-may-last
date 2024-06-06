@@ -52,4 +52,8 @@ async function signin(email: string, password: string) {
   return data
 }
 
-export { isUserRegistered, createUser, signin }
+async function signout(){
+  await supabase.auth.signOut();
+}
+
+export { isUserRegistered, createUser, signin, signout }

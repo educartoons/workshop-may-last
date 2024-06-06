@@ -9,6 +9,8 @@ import UsersPage from './pages/UsersPage'
 import HomePage from './pages/HomePage'
 import AuthPage from './pages/AuthPage'
 import { store } from './store/store'
+import AccountPage from './pages/AccountPage'
+import ProtectedRoute from './components/ProtectedRoute'
 
 export default function App() {
   return (
@@ -22,6 +24,9 @@ export default function App() {
                 <Route path="/products" element={<ProductsPage />} />
                 <Route path="/product/:id" element={<ProductPage />} />
                 <Route path="/users" element={<UsersPage />} />
+                <Route path="/" element={<ProtectedRoute />}>
+                  <Route path="/account" element={<AccountPage />} />
+                </Route>
                 <Route path="*" element={<NotFoundPage />} />
                 <Route path="/auth/*" element={<AuthPage />} />
               </Routes>
