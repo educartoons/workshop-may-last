@@ -34,7 +34,10 @@ const userSlice = createSlice({
       state.createdAt = membershipFrom
     },
     resetUser: (state) => {
-      state = initialState
+      state.isAuthenticated = false
+      state.fullname = ''
+      state.email = ''
+      state.createdAt = ''
     },
   },
 })

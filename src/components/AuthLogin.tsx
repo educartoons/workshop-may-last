@@ -1,11 +1,9 @@
 import { ChangeEvent, useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
 import Button from './Button'
 import Input from './Input'
 import { Link, useNavigate } from 'react-router-dom'
 import { signin } from '../api/auth'
-import { setUser } from '../store/userSlice'
 
 type AuthJoinProps = {
   email: string
@@ -15,7 +13,6 @@ export default function AuthLogin({ email }: AuthJoinProps) {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
   const { enqueueSnackbar } = useSnackbar()
-  const dispatch = useDispatch()
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value)
@@ -25,12 +22,6 @@ export default function AuthLogin({ email }: AuthJoinProps) {
     const data = await signin(email, password)
 
     if (data) {
-      dispatch(
-        setUser({
-          email: data.user.email!,
-          isAuthenticated: true,
-        })
-      )
       enqueueSnackbar('You have signed in successfully', {
         variant: 'success',
         anchorOrigin: {

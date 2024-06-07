@@ -73,3 +73,123 @@ export const MEMBESHIP_ITEMS = [
     button: 'Customize',
   },
 ]
+
+export const NAVITEMS = [
+  {
+    name: 'Running',
+    link: '/',
+  },
+  {
+    name: 'New & Featured',
+    link: '/',
+  },
+  {
+    name: 'Men',
+    link: '/',
+  },
+  {
+    name: 'Women',
+    link: '/',
+  },
+  {
+    name: 'Kids',
+    link: '/',
+  },
+  {
+    name: 'Jordan',
+    link: '/',
+  },
+  {
+    name: 'Sale',
+    link: '/',
+  },
+]
+
+export const MENUITEMS_RUNNING = [
+  {
+    parent: 'Featured',
+    link: 'products',
+    items: ['Just in: Pegasus 41', 'Explore Running'],
+  },
+  {
+    parent: 'Shoes',
+    link: 'shoes',
+    items: [
+      'All Shoes',
+      'Road Running',
+      'Trail Running',
+      'Road Racing',
+      'Track & Field',
+    ],
+  },
+  {
+    parent: 'Clothing',
+    link: 'clothing',
+    items: [
+      'All Clothing',
+      'Tops & T-Shirts',
+      'Jackets & Vests',
+      'Shorts',
+      'Pants & Tights',
+      'Socks',
+    ],
+  },
+  {
+    parent: 'Accessories',
+    link: 'clothing',
+    items: [
+      'All Accessories',
+      'Hats & Headwear',
+      'Bags & Backpacks',
+      'Watchbands',
+    ],
+  },
+]
+
+export const MENUITEMS_FEATURED = [
+  {
+    parent: 'New & Featured',
+    link: 'products',
+    items: ['New Arrivals', 'Best Sellers', 'New & Upcoming Drops'],
+  },
+  {
+    parent: 'Trending',
+    link: 'products',
+    items: [
+      'ACG',
+      'Lifestyle Running',
+      'The Color Shop',
+      'Shop Sport',
+      "Father's Day Shop",
+      'Jordan Heat Check',
+      'Aura Bag',
+    ],
+  },
+  {
+    parent: 'Shop Classics',
+    link: 'products',
+    items: ['Dunk', 'Air Jordan 1', 'Air Force', 'Air Max', 'Blazer', 'Vomero'],
+  },
+  {
+    parent: 'Explore',
+    link: 'products',
+    items: [
+      'SNKRS Launch Calendar',
+      'Running Shoe Finder',
+      'Bra Finder',
+      'Product Care',
+      'Member Rewards',
+      'Buying Guides',
+    ],
+  },
+]
+
+export const MENUITEMS = [
+  MENUITEMS_RUNNING,
+  MENUITEMS_FEATURED,
+  MENUITEMS_FEATURED,
+  MENUITEMS_FEATURED,
+  MENUITEMS_FEATURED,
+  MENUITEMS_FEATURED,
+  MENUITEMS_FEATURED,
+]

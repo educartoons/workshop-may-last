@@ -57,9 +57,6 @@ export default function PreHeader() {
                     <Link to="/auth/lookup">Sign In</Link>
                   </li>
                 )}
-                <li className="text-xs">
-                  <Link to="/account">Account</Link>
-                </li>
               </ul>
             </nav>
           </div>

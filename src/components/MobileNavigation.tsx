@@ -13,7 +13,7 @@ export default function MobileNavigation({
 }: MobileNavigationProps) {
   const ref = useClickOutside<HTMLDivElement>(handleClose)
   return (
-    <div>
+    <div className="block md:hidden">
       <div
         ref={ref}
         className={`px-7 py-7 absolute right-0 top-0 h-screen bg-white z-20 w-[300px] duration-500 transition-transform ${

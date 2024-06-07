@@ -25,20 +25,22 @@ export default function Store({ children }: StoreProps) {
   }
 
   const handleSignIn = async (session: Session) => {
-    const data = await getUserProfile(session.user.id)
+    const data = await getUserProfile(session.user.id);
 
-    dispatch(
-      setUser({
-        email: session.user.email!,
-        isAuthenticated: true,
-        fullName: data.full_name!,
-        createdAt: data.created_at,
-      })
-    )
+    if(data){
+      dispatch(
+        setUser({
+          email: session.user.email!,
+          isAuthenticated: true,
+          fullName: data.full_name!,
+          createdAt: data.created_at,
+        })
+      )
+    }
   }
 
   useEffect(() => {
-    const element = supabase.auth.onAuthStateChange((event, session) => {
+    supabase.auth.onAuthStateChange(async (event, session) => {
       if (event === 'SIGNED_IN' && session) {
         handleSignIn(session)
       } else if (event === 'SIGNED_OUT') {
