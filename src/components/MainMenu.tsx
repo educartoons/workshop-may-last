@@ -26,7 +26,7 @@ export default function MainMenu() {
     <nav>
       <ul className="flex">
         {NAVITEMS.map((item, idx) => (
-          <li onMouseEnter={() => handleShow(idx)} onMouseLeave={handleHide}>
+          <li key={idx} onMouseEnter={() => handleShow(idx)} onMouseLeave={handleHide}>
             <div>
               <Link to={item.link} className="px-3">
                 {item.name}
@@ -49,8 +49,8 @@ export default function MainMenu() {
                     <Wrapper>
                       <div className="w-2/3 mx-auto">
                         <div className="grid grid-cols-4 gap-4">
-                          {menu.map((menu) => {
-                            return <SubMenu show={show} menu={menu} />
+                          {menu.map((menu, idxx) => {
+                            return <SubMenu key={idxx} show={show} menu={menu} />
                           })}
                         </div>
                       </div>

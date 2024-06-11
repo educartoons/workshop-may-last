@@ -21,9 +21,9 @@ function Product(props: ProductProps) {
       </figure>
       <div className="absolute top-2 right-2 z-10">
         {like ? (
-          <HeartFilled className="w-5 cursor-pointer" onClick={handleClick} />
+          <HeartFilled data-testid="filled" className="w-5 cursor-pointer" onClick={handleClick} />
         ) : (
-          <HeartIcon className="w-5 cursor-pointer" onClick={handleClick} />
+          <HeartIcon data-testid="non-filled" className="w-5 cursor-pointer" onClick={handleClick} />
         )}
       </div>
     </div>

@@ -31,8 +31,8 @@ export default function SubMenu({ menu }: SubMenuProps) {
           <Link to={menu.link}>{menu.parent}</Link>
         </h2>
         <ul>
-          {menu.items.map((item) => (
-            <li className="mb-4">
+          {menu.items.map((item, idx) => (
+            <li key={idx} className="mb-4">
               <Link to="/" className="text-xs text-gray-500 font-medium mb">
                 {item}
               </Link>

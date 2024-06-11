@@ -1,7 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from './Button'
-import { supabase } from '../db/db'
 import { isUserRegistered } from '../api/auth'
 import Spinner from './Spinner'
 
@@ -12,7 +11,6 @@ type AuthLookupProps = {
 }
 
 export default function AuthLookup({
-  handleNextStep,
   handleChangeEmail,
   email,
 }: AuthLookupProps) {
@@ -54,7 +52,7 @@ export default function AuthLookup({
         </p>
       </div>
       <div className="mt-5 flex justify-end">
-        <Button onClick={handleContinue} variant="solid">
+        <Button onClick={handleContinue} variant="solid" disabled={email===""}>
           {loading ? (
             <div className="px-4">
               <Spinner />
