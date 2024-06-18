@@ -2,7 +2,13 @@
 export default {
   content: ['./src/**/*.{jsx,tsx}'],
   theme: {
-    extend: {},
+    fontFamily: {
+      'sans': ['Playwrite PL'],
+      'display': ['Playwrite PL']
+    },
+    extend: {
+    
+    },
   },
   plugins: [],
 }
